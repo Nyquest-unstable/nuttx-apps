@@ -1,0 +1,31 @@
+# SPDX-License-Identifier: Apache-2.0
+# Copyright (c) 2024 NuttX Team
+
+menuconfig EXAMPLES_HELLO_ZC
+    bool "Hello ZC Example"
+    help
+      This is a special "Hello ZC" example application for your project.
+
+if EXAMPLES_HELLO_ZC
+
+config EXAMPLES_HELLO_ZC_PROGNAME
+    string
+    default "hello_zc"
+    depends on !EXAMPLES_HELLO_ZC_BUILTIN
+    help
+      The program name used for the example built-in application.
+
+config EXAMPLES_HELLO_ZC_PRIORITY
+    int
+    default 100
+    help
+      The priority level of the example application.  Normally, this
+      would be some value near the priority of the NSH task (100).
+
+config EXAMPLES_HELLO_ZC_STACKSIZE
+    int
+    default 2048
+    help
+      The stack size in bytes assigned to the example application.
+
+endif
